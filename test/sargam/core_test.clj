@@ -1,4 +1,4 @@
-(ns bhatkhande-spec.core-test
+(ns sargam-spec.core-test
   (:require [clojure.test :refer :all]
             [bhatkhande-spec.core :refer :all]))
 

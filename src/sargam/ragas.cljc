@@ -1,4 +1,4 @@
-(ns bhatkhande.ragas)
+(ns sargam.ragas)
 
 (def bhup {:varjit-swaras #{:-r :-g :m :m+ :-d :-n :n}
            :id :bhup})

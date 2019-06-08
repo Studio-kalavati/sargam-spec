@@ -1,4 +1,4 @@
-(ns bhatkhande.talas)
+(ns sargam.talas)
 
 (def teentaal {:id :teentaal
                :bhaags [4 8 12 16]

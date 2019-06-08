@@ -1,4 +1,4 @@
-(ns bhatkhande.spec
+(ns sargam.spec
 #?(:clj  (:require [clojure.spec.alpha :as s]) 
    :cljs (:require-macros [cljs.spec.alpha :as s])
          (:require [cljs.spec.alpha :as s])
