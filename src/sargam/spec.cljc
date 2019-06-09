@@ -1,7 +1,7 @@
 (ns sargam.spec
 #?(:clj  (:require [clojure.spec.alpha :as s]) 
-   :cljs (:require-macros [cljs.spec.alpha :as s])
-         (:require [cljs.spec.alpha :as s])
+   :cljs ;(:require-macros [cljs.spec.alpha :as s])
+         (:require [cljs.spec.alpha :as s :include-macros true :refer [valid?]])
    ))
 
 ;;notes that an be displayed: 12 notes plus gap 
@@ -19,20 +19,20 @@
          #(and (i-note (second %))
               (saptak (first %))))
   )
-(s/valid? ::note [:ati-mandra :s])
-(s/valid? ::note [:s :ati-mandra ]);;false
+(valid? ::note [:ati-mandra :s])
+(valid? ::note [:s :ati-mandra ]);;false
 
 
 ;;a note can have decorations such as
 ;; kan swara
 (s/def ::kan ::note)
-(s/valid? ::kan [:mandra :g]);;true
+(valid? ::kan [:mandra :g]);;true
 
 ;;
 ;; khatka ()
 (s/def ::khatka boolean?)
-(s/valid? ::khatka true)
-(s/valid? ::khatka 0) ;;false
+(valid? ::khatka true)
+(valid? ::khatka 0) ;;false
 
 ;;meends/glides could start or end on a swara
 (s/def ::meend-start boolean?)
@@ -45,7 +45,7 @@
 ;;appear that the (or keys) form works only in :req and not in :opt
 (s/def ::s-note (s/keys :req-un [::note]
                         :opt-un [::kan ::khatka ::meend-start ::meend-end]))
-(s/valid? ::s-note {:note [:madhyam :s] 
+(valid? ::s-note {:note [:madhyam :s] 
                     :kan [:madhyam :r] 
                     :khatka true
                     :meend-start true})
@@ -55,21 +55,21 @@
 
 ;;collection of notes in one matra
 (s/def ::m-note (s/coll-of ::s-note :kind vector? :max-count 10 :min-count 1))
-(s/valid? ::m-note [{:note [:madhyam :s]
+(valid? ::m-note [{:note [:madhyam :s]
                      :kan [:madhyam :r]}
                     {:note [:madhyam :g]}])
 
 ;;notes with sahitya
 (s/def ::m-s-note (s/keys ::req-un [::m-note ::sahitya]))
-(s/valid? ::m-s-note {:m-note [{:note [:madhyam :s]}] :sahitya "Hi"})
+(valid? ::m-s-note {:m-note [{:note [:madhyam :s]}] :sahitya "Hi"})
 
 ;;a sequence of notes
 (s/def ::m-noteseq (s/coll-of ::m-note :kind vector? :min-count 1))
-(s/valid? ::m-noteseq [[{:note [:madhyam :s]}]])
+(valid? ::m-noteseq [[{:note [:madhyam :s]}]])
 
 ;;a sequence of notes + sahitya
 (s/def ::ms-noteseq (s/coll-of ::m-s-note :kind vector? :min-count 1))
-(s/valid? ::ms-noteseq [{:m-note [{:note [:madhyam :s]}]
+(valid? ::ms-noteseq [{:m-note [{:note [:madhyam :s]}]
                       ::sahitya "sarega"}])
 
 ;;taal definitions
@@ -80,8 +80,8 @@
 (s/def ::taal-label string?)
 (s/def ::bhaags (s/coll-of int? :kind vector? :min-count 2))
 (s/def ::sam-khaali (s/and map? #(every? int? (keys %))))
-(s/valid? ::sam-khaali {1 2})
-(s/valid? ::sam-khaali {1 2 "a" "b"}) ;;false
+(valid? ::sam-khaali {1 2})
+(valid? ::sam-khaali {1 2 "a" "b"}) ;;false
 
 (s/def ::taal (s/and (s/keys ::req-un [::num-beats ::taal-name ::taal-label
                                     ::bhaags ::sam-khaali])
@@ -91,19 +91,19 @@
                      #(every? (fn[i] (>= (:num-beats %) i)) (keys (:sam-khaali %)))
                      ))
 
-(s/valid? ::taal {:num-beats 10 :taal-name :jhaptaal
+(valid? ::taal {:num-beats 10 :taal-name :jhaptaal
                   :taal-label "झपताल"
                   :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
                   :bhaags [2 3 2 3]})
 
 ;;sam-khaali greater than 10
-(s/valid? ::taal {:num-beats 10 ::taal-name :jhaptaal
+(valid? ::taal {:num-beats 10 ::taal-name :jhaptaal
                   :taal-label "झपताल"
                   :sam-khaali {1 :sam 3 "2" 11 "4" 6 :khaali}
                   :bhaags [2 3 2 3]});;false
 
 ;;bhaags don't add up to 10
-(s/valid? ::taal {::num-beats 10 ::taal-name :jhaptaal
+(valid? ::taal {::num-beats 10 ::taal-name :jhaptaal
                   ::taal-label "झपताल"
                   ::sam-khaali {1 :sam 3 "2" 8 "4" 12 :khaali}
                   ::bhaags [2 5 7 10]});false
@@ -115,7 +115,7 @@
 ;;taal is optional, incase the composition specifies the same taal for all parts
 (s/def ::comp-part (s/keys ::req-un [::part-id (or ::m-noteseq ::ms-noteseq)]
                            ::opt-un [::taal ::part-num ::part-label]))
-(s/valid? ::comp-part {::m-noteseq [[{:note [:madhyam :s]}]]
+(valid? ::comp-part {::m-noteseq [[{:note [:madhyam :s]}]]
                        ::taal {:num-beats 10 :taal-name :jhaptaal
                               :taal-label "झपताल"
                               :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
@@ -130,7 +130,7 @@
 (s/def ::composition (s/keys ::req-un [::parts ::comp-id ::taal]
                              ::opt-un [::comp-label]))
 
-(s/valid? ::composition {::parts [{:m-noteseq [[{:note [:madhyam :s]}]]
+(valid? ::composition {::parts [{:m-noteseq [[{:note [:madhyam :s]}]]
                                    :part-id "0xfafacaca"}
                                   {:m-noteseq [[{:note [:madhyam :r]}]]
                                    :part-id "0xfafacacd"}]
