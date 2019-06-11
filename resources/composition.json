@@ -1,0 +1,303 @@
+{
+    "parts": [
+        {
+            "m-noteseq": [
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "taar",
+                            "r"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "mandra",
+                            "-n"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ],
+                        "kan": [
+                            "madhyam",
+                            "-g"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "taar",
+                            "g"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "taar",
+                            "r"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "mandra",
+                            "n"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "d"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "m"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "taar",
+                            "r"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "mandra",
+                            "n"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "-g"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "m"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "-"
+                        ]
+                    },
+                    {
+                        "note": [
+                            "madhyam",
+                            "m"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "taar",
+                            "m+"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "taar",
+                            "r"
+                        ],
+                        "kan": [
+                            "taar",
+                            "-g"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "mandra",
+                            "r"
+                        ],
+                        "kan": [
+                            "mandra",
+                            "-g"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ],
+                        "meend-start": true
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ],
+                        "meend-end": true
+                    }
+                ]
+            ],
+            "part-label": "\u0938\u094d\u0925\u093e\u0907"
+        },
+        {
+            "m-noteseq": [
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "mandra",
+                            "-n"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ],
+                        "kan": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "mandra",
+                            "-n"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "s"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "madhyam",
+                            "r"
+                        ]
+                    }
+                ],
+                [
+                    {
+                        "note": [
+                            "mandra",
+                            "-n"
+                        ]
+                    }
+                ]
+            ],
+            "part-label": "\u0905\u0928\u094d\u0924\u0930\u093e"
+        }
+    ],
+    "taal": {
+        "num-beats": 10,
+        "taal-name": "jhaptaal",
+        "taal-label": "\u091d\u092a\u0924\u093e\u0932",
+        "sam-khaali": {
+            "1": "x",
+            "3": "2",
+            "8": "4",
+            "6": "o"
+        },
+        "bhaags": [
+            2,
+            3,
+            2,
+            3
+        ]
+    },
+    "comp-id": "fadaccaa",
+    "comp-label": "\u0928\u0940\u0930 \u092d\u0930\u0928 \u0915\u0948\u0938\u0947 \u091c\u093e\u0909"
+}
