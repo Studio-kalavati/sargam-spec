@@ -1,10 +1,11 @@
 (ns sargam.spec
-(:require ;[spec-tools.json-schema :as json-schema]
+(:require 
           #?(:clj  [clojure.spec.alpha :as s :refer [valid?]] 
              :cljs [cljs.spec.alpha :as s :include-macros true :refer [valid?]])))
 
-;;notes that an be displayed: 12 notes plus gap 
-(def i-note-seq [:s :-r :r :-g :g :m :m+ :p :-d :d :-n :n :- :a])
+(def i-note-seq
+  "notes in an octave that an be displayed: 12 notes plus gap "
+  [:s :-r :r :-g :g :m :m+ :p :-d :d :-n :n :- :a])
 (def i-note (set i-note-seq))
 ;;5 octaves
 (def saptak #{:ati-mandra :mandra :madhyam :taar :ati-taar})
