@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Clojars Project](https://img.shields.io/clojars/v/studiokalavati/sargam-spec.svg)](https://clojars.org/studiokalavati/sargam-spec)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Clojars Project](https://img.shields.io/clojars/v/studiokalavati/sargam-spec.svg)](https://clojars.org/studiokalavati/sargam-spec) [![Build Status](https://travis-ci.com/Studio-kalavati/sargam-spec.svg?branch=master)](https://travis-ci.com/Studio-kalavati/sargam-spec)
 
 # Sargam spec
 
