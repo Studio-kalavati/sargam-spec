@@ -1,22 +1,27 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Sargam spec
 
-A Clojure library designed to ... well, that part is up to you.
+This library is a Clojure [spec](https://clojure.org/guides/spec) and JSON specification for Hindustani classical compositions in [Bhatkhande notation](http://www.swarsaptak.com/blog/blog-12/bhatkhande-swarlipi-or-notation-system) format. 
 
-## Usage
+## Features
 
-FIXME
+This spec supports the following features of the Bhatkhande notation
+
+* Komal and Shuddha swaras
+* Tivra Ma
+* Mandra, Madhyam and Taar Saptak
+* Dugun, Tigun and Chaugun 
+* Vishram swaras
+* Kan Swaras
+* Meend (incomplete support)
+* Sam and Khali (among supported Talas).
+
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Studio Kalavati
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
 http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
