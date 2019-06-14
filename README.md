@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Sargam spec
 
 This library is a Clojure [spec](https://clojure.org/guides/spec) and JSON specification for Hindustani classical compositions in [Bhatkhande notation](http://www.swarsaptak.com/blog/blog-12/bhatkhande-swarlipi-or-notation-system) format. 
