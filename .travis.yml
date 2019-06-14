@@ -1,0 +1,11 @@
+language: clojure
+lein: lein
+dist: xenial
+services:
+  - docker
+
+script: lein do clean, test
+
+branches:
+  only:
+    - master
