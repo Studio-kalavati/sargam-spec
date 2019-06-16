@@ -2,7 +2,16 @@
 
 # Sargam spec
 
-This library is a Clojure [spec](https://clojure.org/guides/spec) and JSON specification for Hindustani classical compositions in [Bhatkhande notation](http://www.swarsaptak.com/blog/blog-12/bhatkhande-swarlipi-or-notation-system) format. 
+This library is a Clojure [spec](https://clojure.org/guides/spec)ification to document Hindustani classical compositions in [Bhatkhande notation](http://www.swarsaptak.com/blog/blog-12/bhatkhande-swarlipi-or-notation-system) format. 
+
+This library will also support serialization to (and from) JSON. 
+
+Compositions can have parts (e.g Sthyai, Antara and multiple Taans) as well as the Taal the composition is set in, or it can be saved with a single part.
+
+A couple of examples:
+
+- A composition with [multiple parts](https://github.com/Studio-kalavati/sargam-spec/blob/master/resources/composition.json).
+- A single [part](https://github.com/Studio-kalavati/sargam-spec/blob/master/resources/composition_part.json)
 
 ## Features
 
@@ -44,9 +53,10 @@ Kan swara can be defined as an additional key in the swara map thus `{:note [:ma
 
 Meend is defined by adding a "meend-start" and "meend-end" key to any note. 
 
-`[{:note [:madhyam :r] :meend-start :true}] 
-
-[{:note [:madhyam :r] :meend-end :true}]`
+```
+[{:note [:madhyam :r] :meend-start :true}] 
+[{:note [:madhyam :r] :meend-end :true}]
+```
 
 ### Taal definition
 
