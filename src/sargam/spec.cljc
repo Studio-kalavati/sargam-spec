@@ -3,12 +3,22 @@
           #?(:clj  [clojure.spec.alpha :as s :refer [valid?]] 
              :cljs [cljs.spec.alpha :as s :include-macros true :refer [valid?]])))
 
-(def i-note-seq
-  "notes in an octave that an be displayed: 12 notes plus gap "
+(def ^{:doc "vector of swaras in an octave that an be displayed: 12 notes plus vishram and avagraha"}
+  i-note-seq
   [:s :-r :r :-g :g :m :m+ :p :-d :d :-n :n :- :a])
-(def i-note (set i-note-seq))
+
+(def
+  ^{:doc "the set of all swaras in an an octave"}
+  i-note
+  (set i-note-seq))
 ;;5 octaves
-(def saptak #{:ati-mandra :mandra :madhyam :taar :ati-taar})
+(def
+  ^{:doc "the set of five octaves supported:
+
+          ati-mandra, mandra, madhyam, taar and ati-taar "}
+  saptak #{:ati-mandra :mandra :madhyam :taar :ati-taar})
+
+
 ;;a note consists of a saptak and swara
 (s/def ::note 
   (s/and (s/coll-of #(or (i-note %)
@@ -115,11 +125,11 @@
 (s/def ::comp-part (s/keys :req-un [::m-noteseq]
                            :opt-un [::part-id ::taal ::part-num ::part-label]))
 (valid? ::comp-part {:m-noteseq [[{:note [:madhyam :s]}]]
-                       :taal {:num-beats 10 :taal-name :jhaptaal
-                              :taal-label "झपताल"
-                              :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
-                              :bhaags [2 3 2 3]}
-                       :part-id "0xfafacaca"})
+                     :taal {:num-beats 10 :taal-name :jhaptaal
+                            :taal-label "झपताल"
+                            :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
+                            :bhaags [2 3 2 3]}
+                     :part-id "0xfafacaca"})
 ;;composition consisting of many parts
 (s/def ::parts (s/coll-of ::comp-part :kind vector? :min-count 1))
 (s/def ::comp-label string?)
