@@ -15,8 +15,10 @@
 (def tilakkamod {:varjit-swaras #{:-r :-g :m+ :-d }
                  :id :tilakkamod})
 
+(def jogkauns {:varjit-swaras #{:-r :r :m+ :d}
+               :id :jogkauns})
 ;;short list of ragas
-(def simple-ragas [bhup hansadhwani bilawal todi tilakkamod])
+(def simple-ragas [bhup hansadhwani bilawal todi tilakkamod jogkauns])
 
 ;;all the ragas defined here
 (def all-ragas [bhup hansadhwani bilawal todi tilakkamod])
