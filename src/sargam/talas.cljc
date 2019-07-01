@@ -1,14 +1,18 @@
 (ns sargam.talas)
 
 (def teentaal {:id :teentaal
-               :bhaags [4 8 12 16]
+               ;;note, it is not the actual location of the bhaag,
+               ;;but the notes in each bhaag.
+               ;;this reads: 4 notes in the first one, 4 in the second and so on.
+               ;;for jhaptaal, it is, [ 2 3 2 3], which means 2 in the first, 3 in the second and  so on.
+               :bhaags [4 4 4 4]
                :sam-khaali {1 "x" 5 "2" 
                             13 "4" 9 "o"}
                :split-points #{5 10 15}
                :num-beats 16})
 
 (def jhaptaal {:id :jhaptaal 
-               :bhaags [2 5 7 10]
+               :bhaags [2 3 2 3]
                :sam-khaali {1 "x" 3 "2" 
                             8 "4" 6 "0"}
                :split-points #{3 7 10}
