@@ -21,8 +21,13 @@
 (def simple-ragas [bhup hansadhwani bilawal todi tilakkamod jogkauns])
 
 ;;all the ragas defined here
-(def all-ragas [bhup hansadhwani bilawal todi tilakkamod])
+(def all-ragas [bhup hansadhwani bilawal todi tilakkamod jogkauns])
 
+(def english-raga-labels
+  (mapv #(assoc (select-keys %1 [:id])
+                :label %2)
+        all-ragas
+        ["Bhup" "Hansadhwani" "Bilawal" "Todi" "Tilak Kamod" "Jogkauns"]))
 (def varjit-swaras (apply merge (mapv (fn[{:keys [id varjit-swaras]}]
                                         {id varjit-swaras})
                                       all-ragas)))
