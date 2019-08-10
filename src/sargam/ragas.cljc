@@ -17,11 +17,23 @@
 
 (def jogkauns {:varjit-swaras #{:-r :r :m+ :d}
                :id :jogkauns})
+
+(def darbari {:varjit-swaras #{:-r :g :m+ :d :n}
+               :id :darbari})
+
+(def yaman {:varjit-swaras #{:-r :-g :m+ :-d :-n}
+               :id :yaman})
+
+(def all-swaras {:varjit-swaras #{}
+               :id :all})
 ;;short list of ragas
-(def simple-ragas [bhup hansadhwani bilawal todi tilakkamod jogkauns])
+(def simple-ragas [bhup hansadhwani bilawal todi tilakkamod jogkauns
+                   darbari
+                   yaman
+                   all-swaras])
 
 ;;all the ragas defined here
-(def all-ragas [bhup hansadhwani bilawal todi tilakkamod jogkauns])
+(def all-ragas simple-ragas)
 
 (def english-raga-labels
   (mapv #(assoc (select-keys %1 [:id])
