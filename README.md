@@ -62,13 +62,13 @@ Meend is defined by adding a "meend-start" and "meend-end" key to any note.
 
 A Taal definition needs to have 
 
-| Feature                                         | Example                        |
-| -                                               | -                              |
-| the number of beats in a taal                   | 10                             |
-| The label or name                               | "झपताल"                        |
-| the timing of Sam and Khali                     | {1 :sam 3 "2" 8 "4" 6 :khaali} |
-| Bhaags , defined as number of notes per section | [2 3 2 3]                      |
-|                                                 |                                |
+| Feature                                     |Description    | Example                        |
+| -                                 |-               | -                              |
+| :num-beats | the number of beats in a taal. Note that 1-based indexing is used, i.e 1-10, not 0-9.                   | 10                             |
+| :id | Unique identifier for the taal, usually the name   | :jhaptaal   |
+| :sam-khaali | the beat number for Sam and Khali, defined by a map where the key is the beat number, and the value is the sam/taali/khaali at that note     | {1 "x" 3 "2" 8 "4" 6 "o"} |
+| :bhaags | Bhaags, defined as a vector where each ith value is the number of beats in the ith Bhaag | [2 3 2 3]                      |
+| :split-points| a set with beat numbers. If the current line is too long to fit in the horizontal width of the screen, the UI engine will jump to a new line on any of the beats defined in split-points. As a default, the keys of sam-khaali can be used as split-points  |  #{1 3 6 8 } |
 
 Here's a complete example
 `
@@ -81,7 +81,7 @@ Specifying a taal section will automatically imply that the beats are to be sync
 
 ## License
 
-Copyright © 2019 Studio Kalavati
+Copyright © 2020 Studio Kalavati
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
