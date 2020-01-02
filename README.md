@@ -2,7 +2,7 @@
 
 # Sargam spec
 
-This library is a Clojure [spec](https://clojure.org/guides/spec)ification to document Hindustani classical compositions in [Bhatkhande notation](http://www.swarsaptak.com/blog/blog-12/bhatkhande-swarlipi-or-notation-system) format. 
+This library is a Clojure/script [spec](https://clojure.org/guides/spec)ification to document Hindustani classical compositions in [Bhatkhande notation](http://www.swarsaptak.com/blog/blog-12/bhatkhande-swarlipi-or-notation-system) format. 
 
 This library will also support serialization to (and from) JSON. 
 
@@ -83,6 +83,13 @@ Here's a complete example
 
 
 Specifying a taal section will automatically imply that the beats are to be synced with the taal that is defined.
+
+## Contributions
+
+Contributions welcome for 
+
+- Taal definitions. Currently supported: Teentaal, Jhaptaal and Ektaal.
+- Multiple languages. Currently English and Devanagri are supported.
 
 ## License
 
