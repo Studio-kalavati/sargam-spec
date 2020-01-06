@@ -9,7 +9,7 @@
    {
     :label "English"
     :tala-labels (zipmap (mapv :id ta/all-talas)
-                         ["Teentaal" "Jhaptaal"])
+                         ["Teentaal" "Jhaptaal" "Ektaal" "Rupak"])
     :raga-labels (zipmap (mapv :id ra/all-ragas)
                          ["Bhoop" "Hansadhwani" "Bilaval" "Todi" "Tilak Kamod"
                           "Jogkauns"
@@ -23,7 +23,7 @@
    {
     :label "हिन्दी"
     :tala-labels (zipmap (mapv :id ta/all-talas)
-                         ["तीन्ताल" "झप्ताल"])
+                         ["तीन्ताल" "झपताल" "एकताल" "रूपक"])
     :raga-labels (zipmap (mapv :id ra/all-ragas)
                          ["भूप" "हम्सध्वनि" "बिलावल" "तोडि" "तिलक कामोद"
                           "जोगकौन्स"

@@ -24,10 +24,18 @@
                            5 "2" 7 "o"
                            9 "3" 11 "4"}
               :split-points #{4 7 10}
-              :num-beats 12})
+             :num-beats 12})
 
-(def all-talas [teentaal jhaptaal ektaal])
+(def rupak {:id :rupak
+             :bhaags [3 2 2]
+             :sam-khaali {1 "o" 4 "1"
+                          6 "2"}
+             :split-points #{1 4 6}
+             :num-beats 7})
 
+(def all-talas [teentaal jhaptaal ektaal rupak])
+
+;;this is not used by the web app. Instead, define it in languages.cljc
 (def english-taal-labels
   (mapv #(assoc (select-keys %1 [:id])
                 :label %2)
