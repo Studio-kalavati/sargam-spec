@@ -31,15 +31,27 @@
              :sam-khaali {1 "o" 4 "1"
                           6 "2"}
              :split-points #{1 4 6}
-             :num-beats 7})
+            :num-beats 7})
 
-(def all-talas [teentaal jhaptaal ektaal rupak])
+(def dadra {:id :dadra
+            :bhaags [3 3]
+            :sam-khaali {1 "x" 4 "o"}
+            :split-points #{1 4}
+            :num-beats 6})
+
+(def kehrwa {:id :kehrwa
+            :bhaags [4 4]
+            :sam-khaali {1 "x" 5 "o"}
+            :split-points #{1 5}
+            :num-beats 8})
+
+(def all-talas [teentaal jhaptaal ektaal rupak dadra kehrwa])
 
 ;;this is not used by the web app. Instead, define it in languages.cljc
 (def english-taal-labels
   (mapv #(assoc (select-keys %1 [:id])
                 :label %2)
-        all-talas ["Teentaal" "Jhaptaal" "Ektaal"]))
+        all-talas ["Teentaal" "Jhaptaal" "Ektaal" "Rupak" "Dadra" "Kehrwa"]))
 
 (def bhaags (apply merge (mapv (fn[{:keys [id bhaags]}]
                                  {id bhaags}) all-talas)))
