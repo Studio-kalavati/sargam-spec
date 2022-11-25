@@ -8,43 +8,34 @@
   {:english
    {
     :label "English"
-    :tala-labels (zipmap (mapv :id ta/all-talas)
-                         ["Teentaal" "Jhaptaal" "Ektaal" "Rupak"])
-    :raga-labels {:bhup "Bhoop"
-                  :hansadhwani "Hansadhwani"
-                  :bilaval "Bilaval"
-                  :todi "Todi"
-                  :tilakkamod "Tilak Kamod"
-                  :jogkauns "Jogkauns"
-                  :darbari "Darbari"
-                  :yaman "Yaman"
-                  :kalyan "Kalyan"
-                  :shankara "Shankara"
-                  :sohini "Sohini"
-                  :bhimpalasi "Bhimpalasi"
-                  :sarang "Sarang"
-                  :kamod "Kamod"
-                  :nand "Nand"
-                  :desh "Desh"
-                  :puriyadhanashri "Puriya Dhanashri"
-                  :all "All"}
+    :tala-labels ta/english-taal-labels
+    :raga-labels ra/english-raga-labels 
     :swara-labels (zipmap us/i-note-seq
                           ["S"  "r" "R"  "g" "G" "M" "m" "P" "d" "D" "n" "N" "-" "ऽ"])
     :raga "Raga"}
    :hindi
    {
     :label "हिन्दी"
-    :tala-labels (zipmap (mapv :id ta/all-talas)
-                         ["तीन्ताल" "झपताल" "एकताल" "रूपक"])
-    :raga-labels {:bhup "भूप"
-                  :hansadhwani "हम्सध्वनि"
+    :tala-labels (zipmap (keys ta/taal-def) 
+                         ["तीन्ताल" "झपताल" "एकताल" "रूपक" "दाद्रा" "केह्र्वा"])
+    :raga-labels {
                   :bilaval "बिलावल"
+                  :kalyan "कल्यण"
+                  :khamaj "खमाज्"
+                  :bhairav "भैरव"
+                  :kafi "काफ़ि"
+                  :poorvi "पुर्वि"
+                  :marwa "मार्वा"
+                  :asavari "असावरि"
+                  :bhairavi "भैरवि"
                   :todi "तोडि"
+
+                  :bhup "भूप"
+                  :hansadhwani "हम्सध्वनि"
                   :tilakkamod "तिलक कामोद"
                   :jogkauns "जोगकौन्स"
                   :darbari "दरबारी"
                   :yaman "यमन"
-                  :kalyan "कल्यण"
                   :shankara "शंकरा"
                   :sohini "सोहिनि"
                   :bhimpalasi "भिम्पलासि"
