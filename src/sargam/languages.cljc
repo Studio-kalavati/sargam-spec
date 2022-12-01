@@ -19,7 +19,7 @@
     :tala-labels (zipmap (keys ta/taal-def) 
                          ["तीन्ताल" "झपताल" "एकताल" "रूपक" "दाद्रा" "केह्र्वा"])
     :raga-labels {
-                  :bilaval "बिलावल"
+                  :bilawal "बिलावल"
                   :kalyan "कल्यण"
                   :khamaj "खमाज्"
                   :bhairav "भैरव"
