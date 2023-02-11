@@ -11,7 +11,7 @@
     :tala-labels ta/english-taal-labels
     :raga-labels ra/english-raga-labels 
     :swara-labels (zipmap us/i-note-seq
-                          ["S"  "r" "R"  "g" "G" "M" "m" "P" "d" "D" "n" "N" "-" "ऽ"])
+                          ["S"  "r" "R"  "g" "G" "m" "M" "P" "d" "D" "n" "N" "-" "ऽ"])
     :raga "Raga"}
    :hindi
    {
@@ -47,4 +47,38 @@
                   :all "सारे स्वर"}
     :swara-labels (zipmap us/i-note-seq
                           ["सा" "रे॒" "रे" "ग॒" "ग" "म" "म॑" "प" "ध॒" "ध" "नि॒" "नि" "-" "ऽ"])
-    :raga "राग"}})
+    :raga "राग"}
+   :bangla
+   {:label "বাংলা"
+    :tala-labels (zipmap (keys ta/taal-def)
+                         ["তিনতাল" "ঝাঁপতাল" "একতাল" "রূপক" "দাদরা" "কাহারবা"])
+    :raga-labels {
+                  :bilawal "বিলাবল"
+                  :kalyan "কল্যাণ"
+                  :khamaj "খাম্বাজ"
+                  :bhairav "ভৈরব"
+                  :kafi "কাফী"
+                  :poorvi "পূরবী"
+                  :marwa "মাড়োয়া"
+                  :asavari "আশাবরী"
+                  :bhairavi "ভৈরবী"
+                  :todi "তোড়ী"
+
+                  :bhup "ভূপালী"
+                  :hansadhwani "হংসধ্বনি"
+                  :tilakkamod "তিলক কামোদ"
+                  :jogkauns "যোগকোষ"
+                  :darbari "দরবারী"
+                  :yaman "ইমন"
+                  :shankara "শঙ্করা"
+                  :sohini "সোহিনী"
+                  :bhimpalasi "ভীমপলশ্রী"
+                  :sarang "সারং"
+                  :kamod "কামোদ"
+                  :nand "নন্দ"
+                  :desh "দেশ"
+                  :puriyadhanashri "পুরিয়া ধানেশ্রী"
+                  :all "সমস্ত স্বর"}
+    :swara-labels (zipmap us/i-note-seq
+                          ["সা" "̲রে" "রে" "̲গ" "গ" "ম" "॑ম" "প" "̲ধ" "ধ" "̲নি" "নি" "-" "ऽ"])
+    :raga "রাগ"}})
