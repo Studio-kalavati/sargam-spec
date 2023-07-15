@@ -87,12 +87,12 @@ Specifying a taal section will automatically imply that the beats are to be sync
 
 Contributions welcome for 
 
-- Taal definitions. Currently supported: Teentaal, Jhaptaal and Ektaal.
+- Taal definitions. Currently supported: Teentaal, Jhaptaal, Ektaal, Rupak, Dadra, Kehrwa.
 - Multiple languages. Currently English and Devanagri are supported.
 
 ## License
 
-Copyright © 2020 Studio Kalavati
+Copyright © 2019 - 2023 Studio Kalavati
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
