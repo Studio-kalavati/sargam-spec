@@ -38,8 +38,13 @@
     :bhaags [4 4]
     :sam-khaali {1 "x" 5 "o"}
     :num-beats 8}
+   :adachautal
+    {
+     :bhaags [2 2 2 2 2 2 2]
+     :sam-khaali {1 "x" 3 "2" 7 "3" 11 "4" 5 "o" 9 "o" 13 "o"}
+     :num-beats 14}
    }
   )
 
 (def english-taal-labels
-  (zipmap (keys taal-def) ["Teentaal" "Jhaptaal" "Ektaal" "Rupak" "Dadra" "Kehrwa"]))
+  (zipmap (keys taal-def) ["Teentaal" "Jhaptaal" "Ektaal" "Rupak" "Dadra" "Kehrwa" "Ada Chautal"]))
