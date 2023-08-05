@@ -5,7 +5,8 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :repositories [
                  ["github" {:url "https://maven.pkg.github.com/studio-kalavati/sargam-spec"
-                            :username [:env/GITHUB_USER] :password [:env/GITHUB_TOKEN]}]
+                            :username [:env/GITHUB_USER] :password [:env/GITHUB_TOKEN]
+                            :sign-releases false}]
                  ["releases" {:url "https://repo.clojars.org"
                               :username :env
                               :password :env
