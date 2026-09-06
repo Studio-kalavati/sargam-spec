@@ -2,17 +2,18 @@
   (:require [clojure.test :refer :all]
             [clojure.spec.alpha :as s :refer [valid?]]
             [clojure.data.json :as json]
-            [sargam.spec :as ss]))
+            [sargam.spec :as ss]
+            [sargam.talas :as talas]))
 
 (def t1 {:num-beats 10 :taal-name :jhaptaal
          :taal-label "झपताल"
-         :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
+         :sam-khaali {1 :sam 3 "2" 8 "3" 6 :khaali}
          :bhaags [2 3 2 3]})
 
 (def part-1 {:m-noteseq [[{:note [:madhyam :s]}]]
                   :taala {:num-beats 10 :taal-name :jhaptaal
                           :taal-label "झपताल"
-                          :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
+                          :sam-khaali {1 :sam 3 "2" 8 "3" 6 :khaali}
                           :bhaags [2 3 2 3]}
                   :part-id "0xfafacaca"})
 
@@ -36,7 +37,7 @@
                        :part-id "0xfafacacd"}]
              :taal {:num-beats 10 :taal-name :jhaptaal
                     :taal-label "झपताल"
-                    :sam-khaali {1 :sam 3 "2" 8 "4" 6 :khaali}
+                    :sam-khaali {1 :sam 3 "2" 8 "3" 6 :khaali}
                     :bhaags [2 3 2 3]}
              :comp-id "cacaddad"})
 
@@ -58,3 +59,28 @@
     )
   )
 
+
+(defn- marks-in-order
+  "sam/khaali labels in the order they are recited across one avartan."
+  [taal]
+  (let [{:keys [bhaags sam-khaali]} (get talas/taal-def taal)
+        bhaag-start-beats (->> bhaags (reductions + 0) butlast (map inc))]
+    (mapv #(get sam-khaali %) bhaag-start-beats)))
+
+(deftest tali-numbering
+  (testing "khaali is not counted, so the bhaag after it is 3 and not 4"
+    (is (= ["x" "2" "o" "3"] (marks-in-order :teentaal)))
+    (is (= ["x" "2" "0" "3"] (marks-in-order :jhaptaal))))
+
+  (testing "taals that already skipped khaali are unaffected"
+    (is (= ["x" "o" "2" "o" "3" "4"] (marks-in-order :ektaal)))
+    (is (= ["o" "1" "2"] (marks-in-order :rupak)))
+    (is (= ["x" "o"] (marks-in-order :dadra)))
+    (is (= ["x" "o"] (marks-in-order :kehrwa)))
+    (is (= ["x" "2" "o" "3" "o" "4" "o"] (marks-in-order :adachautaal))))
+
+  (testing "every taal labels each bhaag and its bhaags add up"
+    (doseq [[taal {:keys [bhaags num-beats]}] talas/taal-def]
+      (is (= num-beats (apply + bhaags)) (str taal))
+      (is (= (count bhaags) (count (marks-in-order taal))) (str taal))
+      (is (every? some? (marks-in-order taal)) (str taal)))))

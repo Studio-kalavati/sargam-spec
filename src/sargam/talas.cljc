@@ -10,11 +10,11 @@
     ;;for teentaal, it is, [4 4 4 4], which means 4 beats in the first bhaag, 4 in the second
     ;;and so on.
     :bhaags [4 4 4 4]
-    :sam-khaali {1 "x" 5 "2" 13 "4" 9 "o"}
+    :sam-khaali {1 "x" 5 "2" 13 "3" 9 "o"}
     :num-beats 16}
    :jhaptaal
    {:bhaags [2 3 2 3]
-    :sam-khaali {1 "x" 3 "2" 8 "4" 6 "0"}
+    :sam-khaali {1 "x" 3 "2" 8 "3" 6 "0"}
     :num-beats 10}
    :ektaal
    {
