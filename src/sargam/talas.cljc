@@ -43,8 +43,15 @@
      :bhaags [2 2 2 2 2 2 2]
      :sam-khaali {1 "x" 3 "2" 7 "3" 11 "4" 5 "o" 9 "o" 13 "o"}
      :num-beats 14}
+   :dhamaar
+   {
+    ;;14 matras in vibhags of 5 2 3 4, sam on 1, khaali on 8
+    :bhaags [5 2 3 4]
+    :sam-khaali {1 "x" 6 "2" 8 "o" 11 "3"}
+    :num-beats 14}
    }
   )
 
 (def english-taal-labels
-  (zipmap (keys taal-def) ["Teentaal" "Jhaptaal" "Ektaal" "Rupak" "Dadra" "Kehrwa" "Ada Chautaal"]))
+  (zipmap (keys taal-def) ["Teentaal" "Jhaptaal" "Ektaal" "Rupak" "Dadra" "Kehrwa" "Ada Chautaal"
+                           "Dhamaar"]))

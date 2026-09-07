@@ -3,7 +3,8 @@
             [clojure.spec.alpha :as s :refer [valid?]]
             [clojure.data.json :as json]
             [sargam.spec :as ss]
-            [sargam.talas :as talas]))
+            [sargam.talas :as talas]
+            [sargam.languages :as lang]))
 
 (def t1 {:num-beats 10 :taal-name :jhaptaal
          :taal-label "झपताल"
@@ -84,3 +85,31 @@
       (is (= num-beats (apply + bhaags)) (str taal))
       (is (= (count bhaags) (count (marks-in-order taal))) (str taal))
       (is (every? some? (marks-in-order taal)) (str taal)))))
+
+(deftest dhamaar
+  (let [{:keys [bhaags num-beats sam-khaali] :as taal} (:dhamaar talas/taal-def)]
+    (testing "14 matras in vibhags of 5 2 3 4"
+      (is (= [5 2 3 4] bhaags))
+      (is (= 14 num-beats))
+      (is (= num-beats (apply + bhaags))))
+
+    (testing "sam on 1, tali on 6 and 11, khaali on 8"
+      (is (= {1 "x" 6 "2" 8 "o" 11 "3"} sam-khaali))
+      (is (= ["x" "2" "o" "3"] (marks-in-order :dhamaar))))
+
+    (testing "valid per the taal spec"
+      (is (s/valid? ::ss/taal (assoc taal :taal-label "Dhamaar"))))))
+
+(deftest taal-labels-cover-every-taal
+  (testing "each language labels every taal"
+    (doseq [[lang-key {:keys [tala-labels]}] lang/lang-labels]
+      (is (= (set (keys talas/taal-def)) (set (keys tala-labels)))
+          (str lang-key " is missing or has extra taal labels"))))
+
+  ;;the label maps are built by zipmap over (keys taal-def), which preserves order
+  ;;only while taal-def has 8 entries or fewer. a 9th silently mispairs them all,
+  ;;so assert pairings and not merely presence.
+  (testing "labels are paired with the right taal, not merely present"
+    (is (= "Teentaal" (:teentaal talas/english-taal-labels)))
+    (is (= "Ada Chautaal" (:adachautaal talas/english-taal-labels)))
+    (is (= "Dhamaar" (:dhamaar talas/english-taal-labels)))))
