@@ -1,7 +1,8 @@
 (ns sargam.talas)
 
 (def taal-def
-  {:teentaal
+  (array-map
+   :teentaal
    {
     ;;note, it is not the actual location of the bhaag,
     ;;but the notes in each bhaag.
@@ -43,8 +44,29 @@
      :bhaags [2 2 2 2 2 2 2]
      :sam-khaali {1 "x" 3 "2" 7 "3" 11 "4" 5 "o" 9 "o" 13 "o"}
      :num-beats 14}
-   }
-  )
+   :deepchandi
+   {
+    ;;14 matras in vibhags of 3 4 3 4, sam on 1, khaali on 8
+    :bhaags [3 4 3 4]
+    :sam-khaali {1 "x" 4 "2" 8 "o" 11 "3"}
+    :num-beats 14}
+   :dhamaar
+   {
+    ;;14 matras in vibhags of 5 2 3 4, sam on 1, khaali on 8
+    :bhaags [5 2 3 4]
+    :sam-khaali {1 "x" 6 "2" 8 "o" 11 "3"}
+    :num-beats 14}))
 
+;;labels are keyed by taal rather than zipped positionally over (keys taal-def),
+;;so adding or reordering a taal cannot silently mispair them.
 (def english-taal-labels
-  (zipmap (keys taal-def) ["Teentaal" "Jhaptaal" "Ektaal" "Rupak" "Dadra" "Kehrwa" "Ada Chautaal"]))
+  (array-map
+   :teentaal "Teentaal"
+   :jhaptaal "Jhaptaal"
+   :ektaal "Ektaal"
+   :rupak "Rupak"
+   :dadra "Dadra"
+   :kehrwa "Kehrwa"
+   :adachautaal "Ada Chautaal"
+   :deepchandi "Deepchandi"
+   :dhamaar "Dhamaar"))

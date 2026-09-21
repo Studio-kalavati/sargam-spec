@@ -16,8 +16,16 @@
    :hindi
    {
     :label "हिन्दी"
-    :tala-labels (zipmap (keys ta/taal-def) 
-                         ["तीन्ताल" "झपताल" "एकताल" "रूपक" "दाद्रा" "केह्र्वा" "आडा छौताल"])
+    :tala-labels (array-map
+                  :teentaal    "तीन्ताल"
+                  :jhaptaal    "झपताल"
+                  :ektaal      "एकताल"
+                  :rupak       "रूपक"
+                  :dadra       "दाद्रा"
+                  :kehrwa      "केह्र्वा"
+                  :adachautaal "आडा छौताल"
+                  :deepchandi  "दीपचंदी"
+                  :dhamaar     "धमार")
     :raga-labels {
                   :bilawal "बिलावल"
                   :kalyan "कल्यण"
@@ -50,8 +58,16 @@
     :raga "राग"}
    :bangla
    {:label "বাংলা"
-    :tala-labels (zipmap (keys ta/taal-def)
-                         ["তিনতাল" "ঝাঁপতাল" "একতাল" "রূপক" "দাদরা" "কাহারবা" "আড়া চৌতাল"])
+    :tala-labels (array-map
+                  :teentaal    "তিনতাল"
+                  :jhaptaal    "ঝাঁপতাল"
+                  :ektaal      "একতাল"
+                  :rupak       "রূপক"
+                  :dadra       "দাদরা"
+                  :kehrwa      "কাহারবা"
+                  :adachautaal "আড়া চৌতাল"
+                  :deepchandi  "দীপচন্দী"
+                  :dhamaar     "ধামার")
     :raga-labels {
                   :bilawal "বিলাবল"
                   :kalyan "কল্যাণ"

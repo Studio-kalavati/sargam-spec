@@ -3,7 +3,8 @@
             [clojure.spec.alpha :as s :refer [valid?]]
             [clojure.data.json :as json]
             [sargam.spec :as ss]
-            [sargam.talas :as talas]))
+            [sargam.talas :as talas]
+            [sargam.languages :as lang]))
 
 (def t1 {:num-beats 10 :taal-name :jhaptaal
          :taal-label "झपताल"
@@ -79,8 +80,23 @@
     (is (= ["x" "o"] (marks-in-order :kehrwa)))
     (is (= ["x" "2" "o" "3" "o" "4" "o"] (marks-in-order :adachautaal))))
 
+  (testing "the 14 matra taals differ in vibhag division, not in tali numbering"
+    (is (= ["x" "2" "o" "3"] (marks-in-order :deepchandi)))
+    (is (= ["x" "2" "o" "3"] (marks-in-order :dhamaar))))
+
   (testing "every taal labels each bhaag and its bhaags add up"
     (doseq [[taal {:keys [bhaags num-beats]}] talas/taal-def]
       (is (= num-beats (apply + bhaags)) (str taal))
       (is (= (count bhaags) (count (marks-in-order taal))) (str taal))
       (is (every? some? (marks-in-order taal)) (str taal)))))
+
+(deftest every-taal-is-valid-per-spec
+  (doseq [[taal-name taal] talas/taal-def]
+    (is (s/valid? ::ss/taal (assoc taal :taal-label (get talas/english-taal-labels taal-name)))
+        (str taal-name))))
+
+(deftest taal-labels-cover-every-taal
+  (testing "each language labels every taal"
+    (doseq [[lang-key {:keys [tala-labels]}] lang/lang-labels]
+      (is (= (set (keys talas/taal-def)) (set (keys tala-labels)))
+          (str lang-key " is missing or has extra taal labels")))))
